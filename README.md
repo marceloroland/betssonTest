@@ -1,5 +1,5 @@
 
-# 📱 Swag Labs Mobile Test Automation
+# 📱 Swag Labs Mobile Test Automation for Betsson Test
 
 This project performs automated testing on the **Swag Labs** mobile app using **Java, Appium, Cucumber, TestNG, and Maven**.
 
@@ -18,7 +18,18 @@ Before running the tests, make sure the following tools are installed and config
 
 ### 2. Android Studio
 - Download and install Android Studio: [https://developer.android.com/studio](https://developer.android.com/studio)
-- Set up a virtual Android emulator (AVD) with Android 11 or higher.
+- Set up a virtual Android emulator (AVD) with Android 16.0
+- Set up Android emulator with this JSON config
+  {
+  "platformName": "Android",
+  "appium:platformVersion": "16.0",
+  "appium:deviceName": "androidPhone",
+  "appium:automationName": "UiAutomator2",
+  "appium:app": "\src\\test\\resources\\apk\\Android.SauceLabs.Mobile.Sample.app.2.7.1.apk",
+  "appium:appPackage": "com.swaglabsmobileapp",
+  "appium:appActivity": "com.swaglabsmobileapp.MainActivity",
+  "appium:noReset": true
+}
 
 ### 3. Node.js (Required for Appium)
 - Download and install Node.js: [https://nodejs.org](https://nodejs.org)
@@ -57,19 +68,20 @@ betssonproject/
 ├── src/
 │   ├── main/
 │   │   └── java/
-│   │       └── base/
-│   │           ├── BaseTest.java
-│   │           └── BasePage.java
+|   |
 │   └── test/
 │       ├── java/
-│       │   ├── pages/
-│       │   ├── steps/
+│       │   ├── base/
 │       │   ├── hooks/
-│       │   └── runners/
+│       │   ├── pages/
+│       │   ├── runners/
+│       │   ├── steps/
 │       └── resources/
 │           └── features/
 │               ├── login.feature
-│               └── purchase.feature
+│               ├── logout.feature
+│               ├── productDetails.feature
+│               └── purchaseFlow.feature
 └── pom.xml
 ```
 
@@ -82,7 +94,7 @@ Open the project folder with IntelliJ IDEA or your preferred code editor.
 
 ### 2. Start the Emulator
 Open Android Studio > Virtual Device Manager  
-Start a device running Android 11 or higher.
+Start a device running Android 16.0.
 
 ### 3. Start the Appium Server
 In your terminal:
@@ -105,9 +117,9 @@ mvn clean test
 
 ## 🧪 Useful Commands
 
-- Run only the login feature:
+- Run all features with feature:
   ```bash
-  mvn clean test -Dcucumber.filter.tags="@Login"
+  mvn clean test
   ```
 
 - View test results:
@@ -142,4 +154,4 @@ target/reports/
 
 ## ❓ Support
 
-If you need help running the project, contact the project maintainer or the QA team lead.
+If you need help running the project, contact marcelo.roland@outlook.com
