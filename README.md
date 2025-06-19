@@ -19,17 +19,7 @@ Before running the tests, make sure the following tools are installed and config
 ### 2. Android Studio
 - Download and install Android Studio: [https://developer.android.com/studio](https://developer.android.com/studio)
 - Set up a virtual Android emulator (AVD) with Android 16.0
-- Set up Android emulator with this JSON config
-  {
-  "platformName": "Android",
-  "appium:platformVersion": "16.0",
-  "appium:deviceName": "androidPhone",
-  "appium:automationName": "UiAutomator2",
-  "appium:app": "\src\\test\\resources\\apk\\Android.SauceLabs.Mobile.Sample.app.2.7.1.apk",
-  "appium:appPackage": "com.swaglabsmobileapp",
-  "appium:appActivity": "com.swaglabsmobileapp.MainActivity",
-  "appium:noReset": true
-}
+
 
 ### 3. Node.js (Required for Appium)
 - Download and install Node.js: [https://nodejs.org](https://nodejs.org)
@@ -47,6 +37,20 @@ Before running the tests, make sure the following tools are installed and config
   ```bash
   appium
   ```
+
+  - Set up Appium Inspector with this JSON config
+```
+  {
+  "platformName": "Android",
+  "appium:platformVersion": "16.0",
+  "appium:deviceName": "androidPhone",
+  "appium:automationName": "UiAutomator2",
+  "appium:app": "\src\\test\\resources\\apk\\Android.SauceLabs.Mobile.Sample.app.2.7.1.apk",
+  "appium:appPackage": "com.swaglabsmobileapp",
+  "appium:appActivity": "com.swaglabsmobileapp.MainActivity",
+  "appium:noReset": true
+}
+```
 
 ### 5. Maven
 - Download and install Maven: [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
